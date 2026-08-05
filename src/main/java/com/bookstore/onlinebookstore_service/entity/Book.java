@@ -17,10 +17,20 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "book_id")
     private Long bookId;
     private String title;
-    private String author;
+
     private Double price;
-    private String category;
+
+    private Integer stock;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 }
