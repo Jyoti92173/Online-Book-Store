@@ -6,8 +6,10 @@ import lombok.*;
 @NoArgsConstructor
 
 public class BookRequestDTO {
+
     private String title;
-    private String author;
     private double price;
-    private String category;
+    private Integer stock;
+    private Long authorId;
+    private Long categoryId;
 }
