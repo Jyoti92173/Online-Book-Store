@@ -10,15 +10,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Books")
+@RequestMapping("/books")
 @RequiredArgsConstructor
 public class BookController {
 
-    private BookService bookService;
+    private final BookService bookService;
     @PostMapping("/create")
-    public ResponseEntity<BookRequestDTO> CreateBook(@RequestBody BookRequestDTO bookRequestDTO){
-        BookResponseDTO  bookResponse =
-                bookService.createBook(bookRequestDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(bookRequestDTO);
+    public ResponseEntity<BookResponseDTO> createBook(
+            @RequestBody BookRequestDTO bookRequestDTO){
+
+        BookResponseDTO  response = bookService.createBook(bookRequestDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }
