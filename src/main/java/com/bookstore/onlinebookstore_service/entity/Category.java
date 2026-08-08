@@ -1,9 +1,6 @@
 package com.bookstore.onlinebookstore_service.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +17,9 @@ public class Category {
 
     @Id
     @Column(name = "category_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer categoryId;
 
-    private String category;
+    @Column(name = "category_name")
+    private String categoryName;
 }
