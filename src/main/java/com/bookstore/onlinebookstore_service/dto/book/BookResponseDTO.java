@@ -13,6 +13,6 @@ public class BookResponseDTO {
     private Integer stock;
 
     private String author;
-    private String category;
+    private String categoryName;
 
 }
