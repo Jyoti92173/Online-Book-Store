@@ -33,4 +33,10 @@ public class Book {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @Column(name = "author_name")
+    private String authorName;
+
+    @Column(name = "category_name")
+    private String categoryName;
+
 }
