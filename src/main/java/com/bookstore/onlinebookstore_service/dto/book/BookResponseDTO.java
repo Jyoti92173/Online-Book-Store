@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class BookResponseDTO {
 
-    private Long  bookId;
+    private Integer bookId;
     private String title;
 
     private Double price;
