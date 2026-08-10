@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/books")
@@ -25,9 +27,23 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BookResponseDTO> getBookById(@PathVariable long id){
+    public ResponseEntity<BookResponseDTO> getBookById(@PathVariable Integer id){
         BookResponseDTO response = bookService.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @GetMapping
+    public ResponseEntity<List<BookResponseDTO>> getAllBooks(){
+
+        List<BookResponseDTO> books = bookService.getAllBooks();
+        return ResponseEntity.ok(books);
+
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<BookResponseDTO> updateBook(@PathVariable Integer id, @RequestBody BookRequestDTO bookRequestDTO){
+
+        BookResponseDTO response = bookService.updateBook(id,bookRequestDTO);
+        return ResponseEntity.ok(response);
+
+    }
 }
