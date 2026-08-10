@@ -12,6 +12,8 @@ import com.bookstore.onlinebookstore_service.service.BookServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookServiceInterface {
@@ -57,8 +59,7 @@ public class BookServiceImpl implements BookServiceInterface {
     }
 
     @Override
-    public BookResponseDTO getById(Long id) {
-
+    public BookResponseDTO getById(Integer id) {
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Book not found"));
 
@@ -74,4 +75,51 @@ public class BookServiceImpl implements BookServiceInterface {
 
         return response;
     }
+
+
+    public List<BookResponseDTO> getAllBooks() {
+
+        List<Book> books = bookRepository.findAll();
+
+        return books.stream()
+                .map(book -> {
+
+                    BookResponseDTO response = new BookResponseDTO();
+
+                    response.setBookId(book.getBookId());
+                    response.setTitle(book.getTitle());
+                    response.setPrice(book.getPrice());
+                    response.setStock(book.getStock());
+
+                    response.setAuthor(
+                            book.getAuthor().getAuthor_name()
+                    );
+
+                    response.setCategoryName(
+                            book.getCategory().getCategoryName()
+                    );
+
+                    return response;
+                })
+                .toList();
+    }
+
+    @Override
+    public BookResponseDTO updateBook(Integer id, BookRequestDTO bookRequestDTO) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found"));
+
+        BookResponseDTO response = new BookResponseDTO();
+        response.setBookId(book.getBookId());
+        response.setTitle(book.getTitle());
+        response.setPrice(book.getPrice());
+        response.setStock(book.getStock());
+        response.setAuthor(book.getAuthor().getAuthor_name());
+        response.setCategoryName(book.getCategory().getCategoryName());
+        return response;
+    }
+
+
 }
+
+
