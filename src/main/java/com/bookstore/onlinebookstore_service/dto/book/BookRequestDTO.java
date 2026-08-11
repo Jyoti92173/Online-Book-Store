@@ -10,6 +10,6 @@ public class BookRequestDTO {
     private String title;
     private double price;
     private Integer stock;
-    private Long authorId;
+    private Integer authorId;
     private Long categoryId;
 }
