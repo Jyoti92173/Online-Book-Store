@@ -18,7 +18,7 @@ public class BookController {
 
     private final BookServiceImpl bookService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<BookResponseDTO> createBook(
             @RequestBody BookRequestDTO bookRequestDTO) {
 
@@ -46,4 +46,17 @@ public class BookController {
         return ResponseEntity.ok(response);
 
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<BookResponseDTO> deleteBook(@PathVariable Integer id){
+        BookResponseDTO response  = bookService.deleteBook(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<BookResponseDTO>> searchBooks(@RequestParam String title){
+
+         return ResponseEntity.ok(bookService.searchBooks(title));
+    }
+
 }
