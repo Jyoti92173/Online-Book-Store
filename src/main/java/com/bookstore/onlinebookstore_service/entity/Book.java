@@ -24,7 +24,6 @@ public class Book {
     private String title;
 
     private Double price;
-
     private Integer stock;
 
     @ManyToOne
