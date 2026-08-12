@@ -2,6 +2,7 @@ package com.bookstore.onlinebookstore_service.service.impl;
 
 import com.bookstore.onlinebookstore_service.dto.author.AuthorRequestDTO;
 import com.bookstore.onlinebookstore_service.dto.author.AuthorResponseDTO;
+import com.bookstore.onlinebookstore_service.dto.book.BookResponseDTO;
 import com.bookstore.onlinebookstore_service.entity.Author;
 import com.bookstore.onlinebookstore_service.mapper.AuthorMapper;
 import com.bookstore.onlinebookstore_service.repository.AuthorRepository;
@@ -57,6 +58,19 @@ public class AuthorServiceImpl implements AuthorServiceInterface {
         author.setAuthor_name(request.getAuthorName());
         Author savedAuthor = authorRepository.save(author);
         return AuthorMapper.toResponse(savedAuthor);
+
+    }
+
+    @Override
+    public AuthorResponseDTO deleteAuthor(Integer id) {
+        Author author = authorRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Author not found"));
+        
+        AuthorResponseDTO response = AuthorMapper.toResponse(author);
+        authorRepository.delete(author);
+
+
+        return response;
 
     }
 
