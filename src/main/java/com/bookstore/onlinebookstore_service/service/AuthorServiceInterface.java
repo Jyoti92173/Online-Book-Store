@@ -17,4 +17,6 @@ public interface AuthorServiceInterface {
     List<AuthorResponseDTO> getAllAuthors();
 
     AuthorResponseDTO updateAuthors(Integer id, AuthorRequestDTO request);
+
+    AuthorResponseDTO deleteAuthor(Integer id);
 }
