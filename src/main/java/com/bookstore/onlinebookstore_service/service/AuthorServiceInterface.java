@@ -6,8 +6,17 @@ import com.bookstore.onlinebookstore_service.entity.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AuthorServiceInterface {
 
     AuthorResponseDTO createAuthor(AuthorRequestDTO request);
+
+    AuthorResponseDTO getById(Integer id);
+
+
+    List<AuthorResponseDTO> getAllAuthors();
+
+    AuthorResponseDTO updateAuthors(Integer id, AuthorRequestDTO request);
 }
