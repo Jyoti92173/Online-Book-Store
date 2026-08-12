@@ -93,6 +93,7 @@ public class BookServiceImpl implements BookServiceInterface {
         return bookMapper.toResponse(bookRepository.save(book));
     }
 
+
     public BookResponseDTO deleteBook(Integer id) {
 
         Book book =  bookRepository.findById(id)
@@ -104,6 +105,7 @@ public class BookServiceImpl implements BookServiceInterface {
 
         return response;
     }
+    
 
     public List<BookResponseDTO> searchBooks(String title) {
 
