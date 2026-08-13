@@ -53,6 +53,7 @@ public class AuthorController {
 @DeleteMapping("/{id}")
     public ResponseEntity<AuthorResponseDTO> deleteAuthor(
             @PathVariable Integer id){
+        
         AuthorResponseDTO response = authorService.deleteAuthor(id);
         return  ResponseEntity.ok(response);
 
@@ -60,7 +61,7 @@ public class AuthorController {
 
     @GetMapping("/search")
     public ResponseEntity<AuthorResponseDTO> searchAuthor(@PathVariable Integer id) {
-        
+
         AuthorResponseDTO response = authorService.searchAuthor(id);
 
         return ResponseEntity.ok(response);
