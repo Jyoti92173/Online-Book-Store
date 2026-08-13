@@ -7,7 +7,7 @@ import com.bookstore.onlinebookstore_service.entity.Book;
 import java.util.List;
 
 public interface BookServiceInterface {
-    
+
     BookResponseDTO createBook(BookRequestDTO bookRequestDTO);
 
     BookResponseDTO getById(Integer id);
