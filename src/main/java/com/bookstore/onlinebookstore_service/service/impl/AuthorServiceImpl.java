@@ -65,12 +65,21 @@ public class AuthorServiceImpl implements AuthorServiceInterface {
     public AuthorResponseDTO deleteAuthor(Integer id) {
         Author author = authorRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Author not found"));
-        
+
         AuthorResponseDTO response = AuthorMapper.toResponse(author);
         authorRepository.delete(author);
 
 
         return response;
+
+    }
+
+    @Override
+    public AuthorResponseDTO searchAuthor(Integer id) {
+        Author author = authorRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Author not found"));
+
+        return AuthorMapper.toResponse(author);
 
     }
 
