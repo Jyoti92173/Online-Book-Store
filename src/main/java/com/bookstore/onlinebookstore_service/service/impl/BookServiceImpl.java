@@ -101,7 +101,7 @@ public class BookServiceImpl implements BookServiceInterface {
 
         BookResponseDTO response = bookMapper.toResponse(book);
         bookRepository.delete(book);
-        
+
         return response;
     }
 
