@@ -60,6 +60,7 @@ public class AuthorController {
 
     @GetMapping("/search")
     public ResponseEntity<AuthorResponseDTO> searchAuthor(@PathVariable Integer id) {
+        
         AuthorResponseDTO response = authorService.searchAuthor(id);
 
         return ResponseEntity.ok(response);
