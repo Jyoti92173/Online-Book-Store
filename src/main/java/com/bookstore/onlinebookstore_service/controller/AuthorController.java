@@ -50,6 +50,19 @@ public class AuthorController {
         return  ResponseEntity.ok(response);
     }
 
+@DeleteMapping("/{id}")
+    public ResponseEntity<AuthorResponseDTO> deleteAuthor(
+            @PathVariable Integer id){
+        AuthorResponseDTO response = authorService.deleteAuthor(id);
+        return  ResponseEntity.ok(response);
 
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<AuthorResponseDTO> searchAuthor(@PathVariable Integer id) {
+        AuthorResponseDTO response = authorService.searchAuthor(id);
+
+        return ResponseEntity.ok(response);
+    }
 
 }
