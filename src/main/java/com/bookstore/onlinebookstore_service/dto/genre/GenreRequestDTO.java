@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class GenreRequestDTO {
 
     private String genreName;
