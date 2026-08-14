@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GenreResponseDTO {
+    
     private Integer genreId;
     private String genreName;
 }
