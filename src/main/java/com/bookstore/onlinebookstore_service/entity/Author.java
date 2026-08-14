@@ -13,10 +13,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Author {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "author_id")
     private Integer authorId;
 
-    private String author_name;
+    private String firstName;
+
+    private String lastName;
 }
