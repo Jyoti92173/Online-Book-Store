@@ -1,5 +1,6 @@
 package com.bookstore.onlinebookstore_service.entity;
 
+import com.bookstore.onlinebookstore_service.enums.BookStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigInteger;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -21,23 +24,32 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private Integer bookId;
+
     private String title;
 
+    @Column(unique = true, nullable = false)
+    private String isbn;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
     private Double price;
-    private Integer stock;
+
+    @Column(name = "stock_qty")
+    private Integer stockQty;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")
-    private Author author;
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @ManyToMany
+    @JoinTable(
+            name = "book_authors",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id")
+    )
+    private Set<Author> authors = new HashSet<>();
 
-    @Column(name = "author_name")
-    private String authorName;
-
-    @Column(name = "category_name")
-    private String categoryName;
-
+    @Enumerated(EnumType.STRING)
+    private BookStatus status;
 }
