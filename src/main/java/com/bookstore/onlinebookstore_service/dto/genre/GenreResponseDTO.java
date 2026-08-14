@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class GenreResponseDTO {
-    
+
     private Integer genreId;
     private String genreName;
 }
