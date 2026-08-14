@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class BookMapper {
+    
     public BookResponseDTO toResponse(Book book) {
 
         BookResponseDTO response = new BookResponseDTO();
