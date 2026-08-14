@@ -7,19 +7,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "genres")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Category {
+public class Genre {
 
     @Id
     @Column(name = "category_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer categoryId;
+    private Integer genreId;
 
-    @Column(name = "category_name")
-    private String categoryName;
+    private String genreName;;
+
+
 }
