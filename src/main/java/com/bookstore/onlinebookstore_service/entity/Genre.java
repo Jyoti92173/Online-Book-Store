@@ -16,7 +16,7 @@ import lombok.Setter;
 public class Genre {
 
     @Id
-    @Column(name = "category_id")
+    @Column(name = "genre_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer genreId;
 
