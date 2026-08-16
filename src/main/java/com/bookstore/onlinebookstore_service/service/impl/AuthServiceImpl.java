@@ -16,8 +16,9 @@ import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
+
 public class AuthServiceImpl implements AuthServiceInterface {
-    
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
