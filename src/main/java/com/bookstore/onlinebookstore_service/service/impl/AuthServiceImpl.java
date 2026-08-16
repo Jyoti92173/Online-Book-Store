@@ -46,10 +46,11 @@ public class AuthServiceImpl implements AuthServiceInterface {
 
     @Override
     public AuthResponseDTO login(LoginRequestDTO request) {
+        
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() ->
                         new RuntimeException("Invalid email or password"));
-        
+
         if (!passwordEncoder.matches(
                 request.getPassword(),
                 user.getPassword())) {
