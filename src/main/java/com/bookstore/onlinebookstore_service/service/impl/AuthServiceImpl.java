@@ -24,10 +24,11 @@ public class AuthServiceImpl implements AuthServiceInterface {
 
     @Override
     public AuthResponseDTO register(RegisterRequestDTO request) {
-        
+
         if(userRepository.existsByEmail(request.getEmail())) {
             throw new UsernameNotFoundException("Email Already Exists");
         }
+        
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
