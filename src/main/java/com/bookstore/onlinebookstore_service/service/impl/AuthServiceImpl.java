@@ -21,9 +21,10 @@ public class AuthServiceImpl implements AuthServiceInterface {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    
+
     @Override
     public AuthResponseDTO register(RegisterRequestDTO request) {
+        
         if(userRepository.existsByEmail(request.getEmail())) {
             throw new UsernameNotFoundException("Email Already Exists");
         }
