@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class AuthResponseDTO {
-    private String accessToken;
-    private String tokenType;
+
+    private String message;
+
 }
