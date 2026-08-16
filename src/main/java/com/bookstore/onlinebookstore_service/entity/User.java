@@ -28,7 +28,6 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
-    private String phone;
 
     private boolean verified;
     private LocalDateTime createdAt;
