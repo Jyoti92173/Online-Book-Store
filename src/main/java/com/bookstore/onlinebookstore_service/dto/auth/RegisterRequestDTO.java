@@ -1,6 +1,4 @@
 package com.bookstore.onlinebookstore_service.dto.auth;
-
-import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
