@@ -28,7 +28,7 @@ public class AuthServiceImpl implements AuthServiceInterface {
         if(userRepository.existsByEmail(request.getEmail())) {
             throw new UsernameNotFoundException("Email Already Exists");
         }
-        
+
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
@@ -49,8 +49,7 @@ public class AuthServiceImpl implements AuthServiceInterface {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() ->
                         new RuntimeException("Invalid email or password"));
-
-
+        
         if (!passwordEncoder.matches(
                 request.getPassword(),
                 user.getPassword())) {
