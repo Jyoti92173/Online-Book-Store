@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("/api/v1/books")
 @RequiredArgsConstructor
 public class BookController {
 
@@ -39,13 +39,7 @@ public class BookController {
         return ResponseEntity.ok(books);
 
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<BookResponseDTO> updateBook(@PathVariable Integer id, @RequestBody BookRequestDTO bookRequestDTO){
 
-        BookResponseDTO response = bookService.updateBook(id,bookRequestDTO);
-        return ResponseEntity.ok(response);
-
-    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<BookResponseDTO> deleteBook(@PathVariable Integer id){
