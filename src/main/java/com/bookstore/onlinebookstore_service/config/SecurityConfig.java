@@ -40,11 +40,12 @@ public class SecurityConfig {
                         // Everything else requires authentication
                         .anyRequest().authenticated()
                 )
+                
                 .formLogin(form -> form.disable())
                 .oauth2Login(oauth -> oauth
                         .successHandler(successHandler)
                 );
-        
+
         return http.build();
     }
 }
