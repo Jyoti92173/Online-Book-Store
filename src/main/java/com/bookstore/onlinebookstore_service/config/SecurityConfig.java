@@ -23,6 +23,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
             CustomOAuth2SuccessHandler successHandler) throws Exception {
+        
         http
                 .csrf(csrf -> csrf.disable())
 
