@@ -29,7 +29,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-                        // Public endpoints..
+                        // Public endpoints...
                         .requestMatchers(
                                 "/",
                                 "/error",
