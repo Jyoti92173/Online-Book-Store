@@ -2,14 +2,13 @@ package com.bookstore.onlinebookstore_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+
 
 @Configuration
 @EnableWebSecurity
@@ -21,48 +20,32 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(
+            HttpSecurity http,
+            CustomOAuth2SuccessHandler successHandler) throws Exception {
 
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
+
+                        // Public endpoints
                         .requestMatchers(
-                                "/auth/**",
+                                "/",
+                                "/error",
                                 "/oauth2/**",
                                 "/login/**"
                         ).permitAll()
 
-                        .requestMatchers("/users/**").authenticated()
-
+                        // Everything else requires authentication
                         .anyRequest().authenticated()
                 )
 
-                .oauth2Login(oauth2 -> oauth2
-                        .defaultSuccessUrl("/users/profile", true)
+                .formLogin(form -> form.disable())
+                .oauth2Login(oauth -> oauth
+                        .successHandler(successHandler)
                 );
 
         return http.build();
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//
-//        http
-//                .csrf(AbstractHttpConfigurer::disable)
-//
-//                .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers(
-//                                "/auth/register",
-//                                "/auth/login",
-//                                "/oauth2/**",
-//                                "/login/**",
-//                                "/users/**"
-//                        ).permitAll()
-//                        .anyRequest().authenticated()
-//                )
-//
-//                .oauth2Login(oauth2 -> oauth2
-//                        .defaultSuccessUrl("/users/profile", true));
-//
-//        return http.build();
     }
 }
