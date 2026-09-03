@@ -37,7 +37,7 @@ public class SecurityConfig {
                                 "/login/**"
                         ).permitAll()
 
-                        // Everything else requires authentication
+                        // Everything else requires authentication.
                         .anyRequest().authenticated()
                 )
 
