@@ -26,7 +26,7 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
-                
+
                 .authorizeHttpRequests(auth -> auth
 
                         // Public endpoints
@@ -40,7 +40,6 @@ public class SecurityConfig {
                         // Everything else requires authentication
                         .anyRequest().authenticated()
                 )
-
                 .formLogin(form -> form.disable())
                 .oauth2Login(oauth -> oauth
                         .successHandler(successHandler)
