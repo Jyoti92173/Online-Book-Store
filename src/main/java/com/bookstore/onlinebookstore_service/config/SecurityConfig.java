@@ -29,7 +29,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-                        // Public endpoints
+                        // Public endpoints.
                         .requestMatchers(
                                 "/",
                                 "/error",
@@ -40,7 +40,7 @@ public class SecurityConfig {
                         // Everything else requires authentication
                         .anyRequest().authenticated()
                 )
-                
+
                 .formLogin(form -> form.disable())
                 .oauth2Login(oauth -> oauth
                         .successHandler(successHandler)
