@@ -27,7 +27,7 @@ public class AuthController {
                 authService.register(request)
         );
     }
-    
+
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDTO> login(
             @RequestBody LoginRequestDTO request) {
@@ -36,6 +36,7 @@ public class AuthController {
                 authService.login(request)
         );
     }
+    
     @PostMapping("/refresh")
     public ResponseEntity<AuthResponseDTO> refreshToken(@RequestBody
                                                         RefreshTokenRequestDTO request){
