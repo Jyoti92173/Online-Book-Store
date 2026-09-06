@@ -2,6 +2,7 @@ package com.bookstore.onlinebookstore_service.controller;
 
 import com.bookstore.onlinebookstore_service.dto.auth.AuthResponseDTO;
 import com.bookstore.onlinebookstore_service.dto.auth.LoginRequestDTO;
+import com.bookstore.onlinebookstore_service.dto.auth.RefreshTokenRequestDTO;
 import com.bookstore.onlinebookstore_service.dto.auth.RegisterRequestDTO;
 import com.bookstore.onlinebookstore_service.service.AuthServiceInterface;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +36,13 @@ public class AuthController {
                 authService.login(request)
         );
     }
+    @PostMapping("/refresh")
+    public ResponseEntity<AuthResponseDTO> refreshToken(@RequestBody
+                                                        RefreshTokenRequestDTO request){
+        return ResponseEntity.ok(
+                authService.refresh(request)
+        );
 
-
+    }
 
 }
