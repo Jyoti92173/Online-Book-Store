@@ -44,5 +44,4 @@ public class AuthController {
                 authService.refresh(request)
         );
     }
-
 }
