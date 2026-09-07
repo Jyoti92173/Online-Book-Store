@@ -31,6 +31,7 @@ public class AuthController {
         );
     }
 
+    
     @PostMapping("/signin")
     public ResponseEntity<AuthResponseDTO> authenticateUser(
             @RequestBody LoginRequestDTO request) {
