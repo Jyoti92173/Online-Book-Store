@@ -4,6 +4,7 @@ import com.bookstore.onlinebookstore_service.dto.auth.AuthResponseDTO;
 import com.bookstore.onlinebookstore_service.dto.auth.LoginRequestDTO;
 import com.bookstore.onlinebookstore_service.dto.auth.RefreshTokenRequestDTO;
 import com.bookstore.onlinebookstore_service.dto.auth.RegisterRequestDTO;
+import com.bookstore.onlinebookstore_service.security.JwtUtil;
 import com.bookstore.onlinebookstore_service.service.AuthServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private final AuthServiceInterface authService;
-    
-    @PostMapping("/register")
-    public ResponseEntity<AuthResponseDTO> register(
+    private final JwtUtil jwtUtil;
+
+    @PostMapping("/signup")
+    public ResponseEntity<AuthResponseDTO> registerUser(
             @RequestBody RegisterRequestDTO request) {
 
         return ResponseEntity.ok(
@@ -28,8 +30,8 @@ public class AuthController {
         );
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<AuthResponseDTO> login(
+    @PostMapping("/signin")
+    public ResponseEntity<AuthResponseDTO> authenticateUser(
             @RequestBody LoginRequestDTO request) {
 
         return ResponseEntity.ok(
