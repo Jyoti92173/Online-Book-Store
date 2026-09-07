@@ -24,7 +24,6 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<AuthResponseDTO> registerUser(
             @RequestBody RegisterRequestDTO request) {
-
         return ResponseEntity.ok(
                 authService.register(request)
         );
@@ -33,7 +32,7 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<AuthResponseDTO> authenticateUser(
             @RequestBody LoginRequestDTO request) {
-        
+
         return ResponseEntity.ok(
                 authService.login(request)
         );
