@@ -17,10 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    
+
     private final AuthServiceInterface authService;
     private final JwtUtil jwtUtil;
-
     @PostMapping("/signup")
     public ResponseEntity<AuthResponseDTO> registerUser(
             @RequestBody RegisterRequestDTO request) {
