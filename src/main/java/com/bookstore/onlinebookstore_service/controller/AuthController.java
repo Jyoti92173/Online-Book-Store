@@ -31,7 +31,7 @@ public class AuthController {
         );
     }
 
-    
+
     @PostMapping("/signin")
     public ResponseEntity<AuthResponseDTO> authenticateUser(
             @RequestBody LoginRequestDTO request) {
@@ -41,6 +41,7 @@ public class AuthController {
         );
     }
 
+    
     @PostMapping("/refresh")
     public ResponseEntity<AuthResponseDTO> refreshToken(@RequestBody
                                                         RefreshTokenRequestDTO request){
