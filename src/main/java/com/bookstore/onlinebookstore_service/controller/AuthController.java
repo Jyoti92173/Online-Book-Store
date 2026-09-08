@@ -29,7 +29,6 @@ public class AuthController {
                 authService.register(request)
         );
     }
-
     
     @PostMapping("/signin")
     public ResponseEntity<AuthResponseDTO> authenticateUser(
