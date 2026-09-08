@@ -20,7 +20,7 @@ public class AuthController {
 
     private final AuthServiceInterface authService;
     private final JwtUtil jwtUtil;
-    
+
     @PostMapping("/signup")
     public ResponseEntity<AuthResponseDTO> registerUser(
             @RequestBody RegisterRequestDTO request) {
@@ -30,6 +30,7 @@ public class AuthController {
         );
     }
 
+    
     @PostMapping("/signin")
     public ResponseEntity<AuthResponseDTO> authenticateUser(
             @RequestBody LoginRequestDTO request) {
