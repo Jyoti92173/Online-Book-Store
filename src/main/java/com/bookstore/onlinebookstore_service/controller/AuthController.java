@@ -22,7 +22,6 @@ public class AuthController {
     private final JwtUtil jwtUtil;
 
 
-
     
     @PostMapping("/signup")
     public ResponseEntity<AuthResponseDTO> registerUser(
