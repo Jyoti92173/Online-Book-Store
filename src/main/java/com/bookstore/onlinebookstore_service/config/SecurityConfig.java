@@ -91,7 +91,7 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // PUBLIC BOOK APIs
-                        // =========================
+                        // ========================
                         .requestMatchers(HttpMethod.GET, "/books/**")
                         .permitAll()
 
@@ -119,7 +119,7 @@ public class SecurityConfig {
                         jwtAuthenticationFilter,
                         UsernamePasswordAuthenticationFilter.class
                 );
-        
+
         return http.build();
     }
 }
