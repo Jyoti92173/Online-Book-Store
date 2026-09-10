@@ -30,5 +30,4 @@ public class UserController {
                 userService.updateProfile(request)
         );
     }
-    
 }
