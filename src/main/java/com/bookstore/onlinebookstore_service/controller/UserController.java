@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserServiceInterface userService;
-
     @GetMapping(value = "/profile",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserResponseDTO> getProfile() {
 
@@ -30,5 +29,5 @@ public class UserController {
                 userService.updateProfile(request)
         );
     }
-    
+
 }
