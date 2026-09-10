@@ -95,7 +95,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/books/**")
                         .permitAll()
 
-                        // ========================
+                        // =======================
                         // ADMIN BOOK APIs
                         // =======================
                         .requestMatchers(HttpMethod.POST, "/books/**")
