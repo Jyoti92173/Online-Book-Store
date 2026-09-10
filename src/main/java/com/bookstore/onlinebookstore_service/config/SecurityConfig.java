@@ -91,7 +91,6 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // PUBLIC BOOK APIs
-                        
                         .requestMatchers(HttpMethod.GET, "/books/**")
                         .permitAll()
 
