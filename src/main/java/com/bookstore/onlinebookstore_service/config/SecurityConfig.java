@@ -91,13 +91,13 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // PUBLIC BOOK APIs
-                        
+
                         .requestMatchers(HttpMethod.GET, "/books/**")
                         .permitAll()
 
                         // =========================
                         // ADMIN BOOK APIs
-                        // =========================
+                        // ========================
                         .requestMatchers(HttpMethod.POST, "/books/**")
                         .hasRole("ADMIN")
 
