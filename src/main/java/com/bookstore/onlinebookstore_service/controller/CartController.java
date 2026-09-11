@@ -37,7 +37,6 @@ public class CartController {
         );
     }
 
-
     
     @DeleteMapping("/items/{id}")
     public ResponseEntity<String> removeItem(
