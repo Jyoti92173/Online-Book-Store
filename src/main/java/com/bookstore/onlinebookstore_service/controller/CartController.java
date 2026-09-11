@@ -23,7 +23,6 @@ public class CartController {
                 cartService.getCart(email)
         );
     }
-
     
     @PostMapping("/items")
     public ResponseEntity<Cart> addItem(
