@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/cart")
 @RequiredArgsConstructor
 public class CartController {
+    
     private final CartServiceInterface cartService;
 
     @GetMapping
@@ -23,7 +24,7 @@ public class CartController {
                 cartService.getCart(email)
         );
     }
-    
+
     @PostMapping("/items")
     public ResponseEntity<Cart> addItem(
             Authentication authentication,
