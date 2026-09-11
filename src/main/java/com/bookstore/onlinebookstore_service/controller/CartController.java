@@ -24,8 +24,7 @@ public class CartController {
         );
     }
 
-
-
+    
     @PostMapping("/items")
     public ResponseEntity<Cart> addItem(
             Authentication authentication,
