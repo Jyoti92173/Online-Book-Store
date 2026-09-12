@@ -32,7 +32,6 @@ public class BookController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-
     
     @GetMapping
     public ResponseEntity<List<BookResponseDTO>> getAllBooks(){
