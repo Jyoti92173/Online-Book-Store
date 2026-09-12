@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/v1/books")
+@RequestMapping("/books")
 @RequiredArgsConstructor
 public class BookController {
 
