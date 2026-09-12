@@ -39,7 +39,7 @@ public class BookController {
         return ResponseEntity.ok(books);
 
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<BookResponseDTO> deleteBook(@PathVariable Integer id){
         BookResponseDTO response  = bookService.deleteBook(id);
@@ -48,7 +48,6 @@ public class BookController {
 
     @GetMapping("/search")
     public ResponseEntity<List<BookResponseDTO>> searchBooks(@RequestParam String title){
-
          return ResponseEntity.ok(bookService.searchBooks(title));
     }
 }
