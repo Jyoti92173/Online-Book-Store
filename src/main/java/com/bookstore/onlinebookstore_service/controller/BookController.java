@@ -31,7 +31,6 @@ public class BookController {
         BookResponseDTO response = bookService.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
-
     
     @GetMapping
     public ResponseEntity<List<BookResponseDTO>> getAllBooks(){
