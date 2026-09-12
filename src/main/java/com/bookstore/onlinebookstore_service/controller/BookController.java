@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/books")
 @RequiredArgsConstructor
 public class BookController {
-    
+
     private final BookServiceImpl bookService;
 
     @PostMapping
@@ -52,5 +52,4 @@ public class BookController {
 
          return ResponseEntity.ok(bookService.searchBooks(title));
     }
-
 }
