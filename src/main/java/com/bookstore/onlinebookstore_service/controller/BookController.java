@@ -15,7 +15,6 @@ import java.util.List;
 @RequestMapping("/books")
 @RequiredArgsConstructor
 public class BookController {
-
     private final BookServiceImpl bookService;
 
     @PostMapping
@@ -31,7 +30,7 @@ public class BookController {
         BookResponseDTO response = bookService.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
-    
+
     @GetMapping
     public ResponseEntity<List<BookResponseDTO>> getAllBooks(){
 
