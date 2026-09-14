@@ -45,6 +45,7 @@ public class CartController {
         String email = authentication.getName();
 
         cartService.removeItem(email, id);
+
         
         return ResponseEntity.ok("Item removed from cart");
     }
