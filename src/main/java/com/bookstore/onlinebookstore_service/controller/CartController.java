@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 public class CartController {
 
     private final CartServiceInterface cartService;
-    
 
     @GetMapping
     public ResponseEntity<Cart> getCart(Authentication authentication) {
