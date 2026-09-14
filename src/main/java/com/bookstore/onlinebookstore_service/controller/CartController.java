@@ -36,7 +36,6 @@ public class CartController {
                 cartService.addItem(email, request)
         );
     }
-
     
     @DeleteMapping("/items/{id}")
     public ResponseEntity<String> removeItem(
