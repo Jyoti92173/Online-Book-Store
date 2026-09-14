@@ -46,6 +46,7 @@ public class CartController {
 
         cartService.removeItem(email, id);
 
+
         
         return ResponseEntity.ok("Item removed from cart");
     }
