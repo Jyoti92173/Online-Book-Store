@@ -44,7 +44,6 @@ public class BookController {
         BookResponseDTO response  = bookService.deleteBook(id);
         return ResponseEntity.ok(response);
     }
-
     
     @GetMapping("/search")
     public ResponseEntity<List<BookResponseDTO>> searchBooks(@RequestParam String title){
