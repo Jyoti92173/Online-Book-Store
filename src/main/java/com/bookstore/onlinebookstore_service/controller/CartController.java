@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class CartController {
 
     private final CartServiceInterface cartService;
+    
 
     @GetMapping
     public ResponseEntity<Cart> getCart(Authentication authentication) {
@@ -36,7 +37,7 @@ public class CartController {
                 cartService.addItem(email, request)
         );
     }
-    
+
     @DeleteMapping("/items/{id}")
     public ResponseEntity<String> removeItem(
             Authentication authentication,
