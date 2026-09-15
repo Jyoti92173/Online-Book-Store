@@ -18,7 +18,6 @@ public class User {
     private Integer userId;
 
     @Column(nullable = false)
-    
     private String username;
 
     @Column(nullable = false, unique = true)
