@@ -20,7 +20,6 @@ public class UserController {
 
 
 
-
     
     @GetMapping(value = "/profile",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserResponseDTO> getProfile() {
