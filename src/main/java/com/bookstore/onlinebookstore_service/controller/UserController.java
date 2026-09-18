@@ -21,7 +21,7 @@ public class UserController {
 
        return ResponseEntity.ok(userService.getProfile());
     }
-    
+
     @PutMapping("/profile")
     public ResponseEntity<UserResponseDTO> updateProfile(
             @RequestBody UpdateProfileDTO request) {
@@ -30,4 +30,10 @@ public class UserController {
                 userService.updateProfile(request)
         );
     }
+
+
+
+
+
+    
 }
