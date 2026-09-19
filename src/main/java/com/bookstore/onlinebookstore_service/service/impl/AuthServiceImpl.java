@@ -65,7 +65,6 @@ public class AuthServiceImpl implements AuthServiceInterface {
         String refreshToken = jwtUtil.generateRefreshToken(user.getEmail());
 
         AuthResponseDTO response = new AuthResponseDTO();
-
         
         response.setAccessToken(accessToken);
         response.setRefreshToken(refreshToken);
