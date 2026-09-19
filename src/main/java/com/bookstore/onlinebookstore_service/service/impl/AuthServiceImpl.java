@@ -33,7 +33,6 @@ public class AuthServiceImpl implements AuthServiceInterface {
         }
 
 
-
         
         User user = new User();
         user.setUsername(request.getUsername());
