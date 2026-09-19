@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthServiceInterface {
         if(userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("Email already exists");
         }
-        
+
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
@@ -65,7 +65,6 @@ public class AuthServiceImpl implements AuthServiceInterface {
         String refreshToken = jwtUtil.generateRefreshToken(user.getEmail());
 
         AuthResponseDTO response = new AuthResponseDTO();
-
         response.setAccessToken(accessToken);
         response.setRefreshToken(refreshToken);
         response.setTokenType("Bearer");
