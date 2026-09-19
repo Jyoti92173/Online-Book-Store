@@ -28,7 +28,6 @@ public class AuthServiceImpl implements AuthServiceInterface {
 
     @Override
     public AuthResponseDTO register(RegisterRequestDTO request) {
-        
         if(userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("Email already exists");
         }
