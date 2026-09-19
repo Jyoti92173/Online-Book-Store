@@ -67,7 +67,6 @@ public class AuthServiceImpl implements AuthServiceInterface {
         AuthResponseDTO response = new AuthResponseDTO();
 
 
-
         
         response.setAccessToken(accessToken);
         response.setRefreshToken(refreshToken);
