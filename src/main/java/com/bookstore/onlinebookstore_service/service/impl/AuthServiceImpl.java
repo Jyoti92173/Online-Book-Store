@@ -32,6 +32,12 @@ public class AuthServiceImpl implements AuthServiceInterface {
             throw new IllegalArgumentException("Email already exists");
         }
 
+
+
+
+
+
+        
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
