@@ -21,14 +21,13 @@ import java.time.LocalDateTime;
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthServiceInterface {
-    
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
     @Override
     public AuthResponseDTO register(RegisterRequestDTO request) {
-
         if(userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("Email already exists");
         }
