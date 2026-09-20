@@ -34,7 +34,6 @@ public class BookServiceImpl implements BookServiceInterface {
 
 
 
-
         Book book = new Book();
 
         book.setTitle(bookRequestDTO.getTitle());
