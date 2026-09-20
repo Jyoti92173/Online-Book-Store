@@ -52,8 +52,7 @@ public class BookServiceImpl implements BookServiceInterface {
 
         return bookMapper.toResponse(book);
     }
-
-
+    
     public List<BookResponseDTO> getAllBooks() {
 
         return bookRepository
@@ -62,7 +61,7 @@ public class BookServiceImpl implements BookServiceInterface {
                 .map(bookMapper::toResponse)
                 .toList();
     }
-    
+
     public BookResponseDTO deleteBook(Integer id) {
 
         Book book =  bookRepository.findById(id)
