@@ -2,13 +2,12 @@ package com.bookstore.onlinebookstore_service.service.impl;
 
 import com.bookstore.onlinebookstore_service.dto.book.BookRequestDTO;
 import com.bookstore.onlinebookstore_service.dto.book.BookResponseDTO;
-import com.bookstore.onlinebookstore_service.entity.Author;
 import com.bookstore.onlinebookstore_service.entity.Book;
-import com.bookstore.onlinebookstore_service.entity.Category;
+import com.bookstore.onlinebookstore_service.entity.Genre;
 import com.bookstore.onlinebookstore_service.mapper.BookMapper;
-import com.bookstore.onlinebookstore_service.repository.AuthorRepository;
 import com.bookstore.onlinebookstore_service.repository.BookRepository;
-import com.bookstore.onlinebookstore_service.repository.CategoryRepository;
+import com.bookstore.onlinebookstore_service.repository.GenreRepository;
+import com.bookstore.onlinebookstore_service.repository.UserRepository;
 import com.bookstore.onlinebookstore_service.service.BookServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,31 +19,29 @@ import java.util.List;
 public class BookServiceImpl implements BookServiceInterface {
 
     private final BookRepository bookRepository;
-    private final AuthorRepository authorRepository;
-    private final CategoryRepository categoryRepository;
+    //fprivate final AuthorRepository authorRepository;
+    private final GenreRepository genreRepository;
     private final BookMapper bookMapper;
+    private final UserRepository userRepository;
+
 
 
     @Override
     public BookResponseDTO createBook(BookRequestDTO bookRequestDTO) {
 
-        Author author = authorRepository.findById(bookRequestDTO.getAuthorId())
-                .orElseThrow(() -> new RuntimeException("Author not found"));
-
-        Category category = categoryRepository.findById(bookRequestDTO.getCategoryId())
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+        Genre genre = genreRepository.findById(bookRequestDTO.getGenreId())
+                .orElseThrow(() -> new RuntimeException("Genre not found"));
 
         Book book = new Book();
 
         book.setTitle(bookRequestDTO.getTitle());
+        book.setIsbn(bookRequestDTO.getIsbn());
+        book.setDescription(bookRequestDTO.getDescription());
         book.setPrice(bookRequestDTO.getPrice());
-        book.setStock(bookRequestDTO.getStock());
+        book.setStockQty(bookRequestDTO.getStockQty());
+        book.setGenre(genre);
+        book.setStatus(bookRequestDTO.getBookStatus());
 
-        book.setAuthor(author);
-        book.setCategory(category);
-
-        book.setAuthorName(author.getAuthor_name());
-        book.setCategoryName(category.getCategoryName());
 
         return bookMapper.toResponse(bookRepository.save(book));
 
@@ -69,29 +66,6 @@ public class BookServiceImpl implements BookServiceInterface {
                 .toList();
     }
 
-    @Override
-    public BookResponseDTO updateBook(Integer id,
-                                      BookRequestDTO bookRequestDTO) {
-
-        Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found"));
-
-        Author author = authorRepository.findById(bookRequestDTO.getAuthorId())
-                .orElseThrow(() -> new RuntimeException("Author not found"));
-
-        Category category = categoryRepository.findById(bookRequestDTO.getCategoryId())
-                .orElseThrow(() -> new RuntimeException("Category not found"));
-
-        book.setTitle(bookRequestDTO.getTitle());
-        book.setPrice(bookRequestDTO.getPrice());
-        book.setStock(bookRequestDTO.getStock());
-        book.setAuthor(author);
-        book.setCategory(category);
-        book.setAuthorName(author.getAuthor_name());
-        book.setCategoryName(category.getCategoryName());
-
-        return bookMapper.toResponse(bookRepository.save(book));
-    }
 
 
     public BookResponseDTO deleteBook(Integer id) {
