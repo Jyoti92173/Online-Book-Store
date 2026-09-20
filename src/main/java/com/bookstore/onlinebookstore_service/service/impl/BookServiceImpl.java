@@ -42,7 +42,6 @@ public class BookServiceImpl implements BookServiceInterface {
         book.setGenre(genre);
         book.setStatus(bookRequestDTO.getBookStatus());
 
-
         return bookMapper.toResponse(bookRepository.save(book));
 
     }
