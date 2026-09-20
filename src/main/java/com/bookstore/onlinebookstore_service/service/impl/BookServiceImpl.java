@@ -23,7 +23,6 @@ public class BookServiceImpl implements BookServiceInterface {
     private final GenreRepository genreRepository;
     private final BookMapper bookMapper;
     private final UserRepository userRepository;
-
     
     @Override
     public BookResponseDTO createBook(BookRequestDTO bookRequestDTO) {
