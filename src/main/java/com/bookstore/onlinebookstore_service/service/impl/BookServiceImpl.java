@@ -31,6 +31,7 @@ public class BookServiceImpl implements BookServiceInterface {
 
         Genre genre = genreRepository.findById(bookRequestDTO.getGenreId())
                 .orElseThrow(() -> new RuntimeException("Genre not found"));
+        
         Book book = new Book();
 
         book.setTitle(bookRequestDTO.getTitle());
