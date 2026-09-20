@@ -63,8 +63,7 @@ public class BookServiceImpl implements BookServiceInterface {
                 .toList();
     }
 
-
-
+    
     public BookResponseDTO deleteBook(Integer id) {
 
         Book book =  bookRepository.findById(id)
@@ -83,7 +82,7 @@ public class BookServiceImpl implements BookServiceInterface {
                 .map(bookMapper::toResponse)
                 .toList();
     }
-    
+
 }
 
 
