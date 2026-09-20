@@ -16,6 +16,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+
 public class BookServiceImpl implements BookServiceInterface {
 
     private final BookRepository bookRepository;
