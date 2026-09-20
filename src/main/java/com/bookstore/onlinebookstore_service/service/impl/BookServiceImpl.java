@@ -75,7 +75,7 @@ public class BookServiceImpl implements BookServiceInterface {
 
         return response;
     }
-    
+
     public List<BookResponseDTO> searchBooks(String title) {
 
         List<Book> books = bookRepository.findByTitleContainingIgnoreCase(title);
@@ -83,6 +83,7 @@ public class BookServiceImpl implements BookServiceInterface {
                 .map(bookMapper::toResponse)
                 .toList();
     }
+    
 }
 
 
