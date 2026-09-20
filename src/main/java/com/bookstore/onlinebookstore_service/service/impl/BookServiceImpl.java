@@ -33,7 +33,6 @@ public class BookServiceImpl implements BookServiceInterface {
                 .orElseThrow(() -> new RuntimeException("Genre not found"));
 
 
-
         Book book = new Book();
 
         book.setTitle(bookRequestDTO.getTitle());
