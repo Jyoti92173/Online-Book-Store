@@ -23,7 +23,7 @@ public class BookServiceImpl implements BookServiceInterface {
     private final GenreRepository genreRepository;
     private final BookMapper bookMapper;
     private final UserRepository userRepository;
-    
+
     @Override
     public BookResponseDTO createBook(BookRequestDTO bookRequestDTO) {
 
@@ -75,8 +75,7 @@ public class BookServiceImpl implements BookServiceInterface {
 
         return response;
     }
-
-
+    
     public List<BookResponseDTO> searchBooks(String title) {
 
         List<Book> books = bookRepository.findByTitleContainingIgnoreCase(title);
