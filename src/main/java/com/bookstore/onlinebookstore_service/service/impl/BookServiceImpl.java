@@ -62,7 +62,6 @@ public class BookServiceImpl implements BookServiceInterface {
                 .map(bookMapper::toResponse)
                 .toList();
     }
-
     
     public BookResponseDTO deleteBook(Integer id) {
 
