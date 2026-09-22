@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserServiceInterface userService;
-    
+
     @GetMapping(value = "/profile",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserResponseDTO> getProfile() {
 
        return ResponseEntity.ok(userService.getProfile());
     }
-
     @PutMapping("/profile")
     public ResponseEntity<UserResponseDTO> updateProfile(
             @RequestBody UpdateProfileDTO request) {
