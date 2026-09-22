@@ -24,7 +24,6 @@ public class UserController {
 
 
 
-
     
     @PutMapping("/profile")
     public ResponseEntity<UserResponseDTO> updateProfile(
